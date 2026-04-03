@@ -1,0 +1,140 @@
+/* Background & body */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(-45deg, #06281E, #0B3D2E, #1A5C46, #A7BFA3);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  color: #F7F3EB;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Screens */
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: fadeIn 0.8s ease;
+}
+
+.screen.active { display: flex; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Titles */
+h1, h2 { font-family: 'Playfair Display', serif; letter-spacing: 1px; }
+
+/* Buttons */
+button {
+  background: rgba(214,185,123,0.95);
+  color: #06281E;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Memory Game Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 95px);
+  gap: 16px;
+  margin-top: 20px;
+  perspective: 1000px;
+}
+
+.card {
+  width: 95px;
+  height: 95px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247,243,235,0.85);
+  backdrop-filter: blur(8px);
+  color: #06281E;
+  font-size: 38px;
+  cursor: pointer;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card:hover { transform: scale(1.05); }
+
+.hidden {
+  background: rgba(167,191,163,0.5);
+  color: transparent;
+}
+
+.matched { animation: matchedGlow 0.6s ease; }
+
+@keyframes matchedGlow {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); box-shadow: 0 0 25px rgba(214,185,123,0.8); }
+  100% { transform: scale(1); }
+}
+
+/* Cake Game */
+#cakeArea { position: relative; width: 100%; height: 60vh; }
+
+.cake {
+  position: absolute;
+  font-size: 70px;
+  cursor: pointer;
+  animation: floatCake 1.8s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.cake:active { transform: scale(1.2); }
+
+@keyframes floatCake {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Invite Card */
+.invite-card {
+  background: rgba(247,243,235,0.88);
+  backdrop-filter: blur(14px);
+  color: #06281E;
+  padding: 34px;
+  border-radius: 28px;
+  max-width: 430px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  border: 1px solid rgba(214,185,123,0.45);
+  animation: cardReveal 1s ease;
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Map Button */
+.map-btn {
+  margin-top: 18px;
+}

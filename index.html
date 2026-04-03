@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Birthday Invitation</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating particles -->
+  <canvas id="particles"></canvas>
+
+  <!-- Landing -->
+  <div id="landing" class="screen active">
+    <h1>A Private Invitation Awaits</h1>
+    <p>Dear <span id="guestName">Friend</span>, complete the challenge to unlock your invite.</p>
+    <button onclick="startGame()">Start</button>
+  </div>
+
+  <!-- Memory Game -->
+  <div id="memory" class="screen">
+    <h2>Match all pairs in 15 seconds</h2>
+    <div id="timer">15</div>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <!-- Cake Tapping -->
+  <div id="cakes" class="screen">
+    <h2>Tap 3 cakes in 10 seconds</h2>
+    <div id="progress">0 / 3</div>
+    <div id="cakeArea"></div>
+  </div>
+
+  <!-- Final Invite -->
+  <div id="reveal" class="screen">
+    <div class="invite-card">
+      <h1>Access Granted</h1>
+      <p>Dear <span id="finalName">Friend</span>,</p>
+      <p>You’ve unlocked your private birthday invitation.</p>
+      <p><strong>Date:</strong> 9 April 2026</p>
+      <p><strong>Time:</strong> 12:00 PM</p>
+      <p><strong>Location:</strong> Jabal Amman</p>
+      <p><strong>Dress Code:</strong> Free — come as your best self</p>
+      <p><strong>Countdown:</strong> <span id="countdown">Loading...</span></p>
+      <button class="map-btn" onclick="openMap()">📍 Open Location</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
